@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Game_ShapePlacer/Scripts/ShapePlacerGame.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Backgrounds/background.png" type="Texture" id=2]
+[ext_resource path="res://Game_ShapePlacer/Scenes/Grid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game_ShapePlacer/Scripts/Spawner.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Backgrounds/frame_overlay.png" type="Texture" id=5]
+[ext_resource path="res://Game_ShapePlacer/Scenes/ShapePlacerUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Sounds/shape_drop.wav" type="AudioStream" id=7]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Grid" parent="." instance=ExtResource( 3 )]
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Frame" type="Sprite" parent="."]
+z_index = 1
+texture = ExtResource( 5 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="UI" parent="." instance=ExtResource( 6 )]
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -20.0

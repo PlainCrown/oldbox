@@ -1,0 +1,272 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Main/GameSelect.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Backgrounds/background.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fonts/FREELAH.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Game Images/blockcrasher_img.png" type="Texture" id=4]
+[ext_resource path="res://Animations/pulse.anim" type="Animation" id=5]
+[ext_resource path="res://Assets/Game Images/foodeater_img.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Game Images/shapeplacer_img.png" type="Texture" id=7]
+[ext_resource path="res://Assets/UI/exit_image.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sounds/line_break.wav" type="AudioStream" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 76
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 3 )
+
+[node name="GameSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_horizontal_guides_": [  ],
+"_edit_lock_": true,
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color( 0.247059, 0.247059, 0.247059, 1 )
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="OldBox" type="Label" parent="."]
+margin_left = 60.0
+margin_top = 61.0
+margin_right = 330.0
+margin_bottom = 122.0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+text = "OldBox"
+align = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BlockCrasherCenter" type="Position2D" parent="."]
+position = Vector2( 499, 272 )
+scale = Vector2( 1.00843, 1.00843 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="BlockCrasherButton" type="TextureButton" parent="BlockCrasherCenter"]
+margin_left = -123.0
+margin_top = -166.0
+margin_right = 557.0
+margin_bottom = 754.0
+rect_scale = Vector2( 0.36, 0.36 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="BlockCrasherAnimation" type="AnimationPlayer" parent="BlockCrasherCenter"]
+anims/pulse = ExtResource( 5 )
+
+[node name="FoodEaterCenter" type="Position2D" parent="."]
+position = Vector2( 185, 690 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="FoodEaterButton" type="TextureButton" parent="FoodEaterCenter"]
+margin_left = -124.0
+margin_top = -161.0
+margin_right = 556.0
+margin_bottom = 759.0
+rect_scale = Vector2( 0.36, 0.36 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="FoodEaterAnimation" type="AnimationPlayer" parent="FoodEaterCenter"]
+anims/pulse = ExtResource( 5 )
+
+[node name="ShapePlacerCenter" type="Position2D" parent="."]
+position = Vector2( 499, 690 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="ShapePlacerButton" type="TextureButton" parent="ShapePlacerCenter"]
+margin_left = -123.0
+margin_top = -161.0
+margin_right = 557.0
+margin_bottom = 759.0
+rect_scale = Vector2( 0.36, 0.36 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="ShapePlacerAnimation" type="AnimationPlayer" parent="ShapePlacerCenter"]
+anims/pulse = ExtResource( 5 )
+
+[node name="MadeBy" type="Label" parent="."]
+margin_left = 597.0
+margin_top = 875.0
+margin_right = 667.0
+margin_bottom = 906.0
+text = "Made by:
+PlainCrown"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BlockCrasherLabel" type="Label" parent="."]
+margin_left = 385.0
+margin_top = 61.0
+margin_right = 613.0
+margin_bottom = 87.0
+custom_fonts/font = SubResource( 2 )
+text = "BlockCrasher"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FoodEaterLabel" type="Label" parent="."]
+margin_left = 99.0
+margin_top = 484.0
+margin_right = 272.0
+margin_bottom = 510.0
+custom_fonts/font = SubResource( 3 )
+text = "FoodEater"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ShapePlacerLabel" type="Label" parent="."]
+margin_left = 395.0
+margin_top = 484.0
+margin_right = 604.0
+margin_bottom = 510.0
+custom_fonts/font = SubResource( 4 )
+text = "ShapePlacer"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MusicLabel" type="Label" parent="."]
+margin_left = 61.0
+margin_top = 190.0
+margin_right = 145.0
+margin_bottom = 216.0
+custom_fonts/font = SubResource( 5 )
+text = "Music"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SFXLabel" type="Label" parent="."]
+margin_left = 61.0
+margin_top = 253.0
+margin_right = 118.0
+margin_bottom = 279.0
+custom_fonts/font = SubResource( 5 )
+text = "SFX"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FullscreenLabel" type="Label" parent="."]
+margin_left = 61.0
+margin_top = 316.0
+margin_right = 251.0
+margin_bottom = 342.0
+custom_fonts/font = SubResource( 5 )
+text = "Fullscreen"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MusicSlider" type="HSlider" parent="."]
+margin_left = 154.0
+margin_top = 191.0
+margin_right = 278.0
+margin_bottom = 207.0
+rect_scale = Vector2( 1.4, 1.4 )
+min_value = -40.0
+max_value = 5.0
+value = -10.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SFXSlider" type="HSlider" parent="."]
+margin_left = 154.0
+margin_top = 253.0
+margin_right = 278.0
+margin_bottom = 269.0
+rect_scale = Vector2( 1.4, 1.4 )
+min_value = -50.0
+max_value = -5.0
+value = -20.0
+ticks_on_borders = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FullscreenCheck" type="CheckBox" parent="."]
+margin_left = 268.0
+margin_top = 307.0
+margin_right = 292.0
+margin_bottom = 331.0
+rect_scale = Vector2( 1.8, 1.8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ExitButton" type="TextureButton" parent="."]
+margin_left = 61.0
+margin_top = 360.0
+margin_right = 331.0
+margin_bottom = 453.0
+texture_normal = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+[connection signal="pressed" from="BlockCrasherCenter/BlockCrasherButton" to="." method="_on_BlockCrasherButton_pressed"]
+[connection signal="pressed" from="FoodEaterCenter/FoodEaterButton" to="." method="_on_FoodEaterButton_pressed"]
+[connection signal="pressed" from="ShapePlacerCenter/ShapePlacerButton" to="." method="_on_ShapePlacerButton_pressed"]
+[connection signal="value_changed" from="MusicSlider" to="." method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="SFXSlider" to="." method="_on_SFXSlider_value_changed"]
+[connection signal="toggled" from="FullscreenCheck" to="." method="_on_FullscreenCheck_toggled"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

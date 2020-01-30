@@ -1,0 +1,116 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Game_ShapePlacer/Scripts/ShapePlacerOptions.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Backgrounds/background.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/label_font_theme.tres" type="Theme" id=3]
+[ext_resource path="res://Assets/Fonts/FREELAH.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/UI/shape_color_button.png" type="Texture" id=5]
+[ext_resource path="res://Assets/UI/back_image.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sounds/line_break.wav" type="AudioStream" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 4 )
+
+[node name="Options" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 140.0
+margin_top = 80.0
+margin_right = 540.0
+margin_bottom = 899.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 400.0
+margin_bottom = 819.0
+
+[node name="ShowGridLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 400.0
+margin_bottom = 85.0
+theme = ExtResource( 3 )
+text = "Show Grid"
+
+[node name="FastModeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 89.0
+margin_right = 400.0
+margin_bottom = 174.0
+theme = ExtResource( 3 )
+text = "fast mode"
+
+[node name="InvisibleModeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 178.0
+margin_right = 400.0
+margin_bottom = 218.0
+custom_fonts/font = SubResource( 1 )
+text = "Invisible mode"
+
+[node name="ShapeColorButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+margin_top = 222.0
+margin_right = 400.0
+margin_bottom = 360.0
+texture_normal = ExtResource( 5 )
+
+[node name="Back" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+margin_top = 364.0
+margin_right = 400.0
+margin_bottom = 502.0
+texture_normal = ExtResource( 6 )
+
+[node name="ShowGridCheck" type="CheckBox" parent="."]
+margin_left = 499.0
+margin_top = 96.0
+margin_right = 523.0
+margin_bottom = 120.0
+rect_scale = Vector2( 2.2, 2.2 )
+pressed = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FastCheck" type="CheckBox" parent="."]
+margin_left = 499.0
+margin_top = 184.0
+margin_right = 523.0
+margin_bottom = 208.0
+rect_scale = Vector2( 2.2, 2.2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="InvisibleCheck" type="CheckBox" parent="."]
+margin_left = 499.0
+margin_top = 252.0
+margin_right = 523.0
+margin_bottom = 276.0
+rect_scale = Vector2( 2.2, 2.2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ShapeColorButton" to="." method="_on_ShapeColorButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]
+[connection signal="toggled" from="ShowGridCheck" to="." method="_on_ShowGridCheck_toggled"]
+[connection signal="toggled" from="FastCheck" to="." method="_on_FastModeCheck_toggled"]
+[connection signal="toggled" from="InvisibleCheck" to="." method="_on_InvisibleCheck_toggled"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

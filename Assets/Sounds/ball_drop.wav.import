@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ball_drop.wav-e18454c7fc9216e73ddfeac4ae71818f.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/ball_drop.wav"
+dest_files=[ "res://.import/ball_drop.wav-e18454c7fc9216e73ddfeac4ae71818f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
